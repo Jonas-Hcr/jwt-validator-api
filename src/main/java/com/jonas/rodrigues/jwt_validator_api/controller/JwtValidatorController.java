@@ -2,7 +2,9 @@ package com.jonas.rodrigues.jwt_validator_api.controller;
 
 import com.jonas.rodrigues.jwt_validator_api.dto.JwtRequestDTO;
 import com.jonas.rodrigues.jwt_validator_api.dto.JwtResponseDTO;
+import com.jonas.rodrigues.jwt_validator_api.service.JwtValidationService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,12 +13,12 @@ import org.springframework.web.bind.annotation.*;
 @Slf4j
 public class JwtValidatorController {
 
+    @Autowired
+    private JwtValidationService jwtValidationService;
+
     @PostMapping
     public ResponseEntity<JwtResponseDTO> validateJwt(@RequestBody JwtRequestDTO jwtRequest) {
         log.info("Received JWT for validation: {}", jwtRequest.token());
-
-        JwtResponseDTO response = new JwtResponseDTO(true);
-
-        return ResponseEntity.ok(response);
+        return ResponseEntity.ok(jwtValidationService.validate(jwtRequest));
     }
 }
