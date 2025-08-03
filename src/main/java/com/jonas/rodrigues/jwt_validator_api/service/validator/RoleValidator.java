@@ -11,6 +11,9 @@ public class RoleValidator implements JwtRuleValidator {
 
     @Override
     public boolean isValid(JwtClaims claims) {
+        if (claims == null || claims.role() == null) {
+            return false;
+        }
         return VALID_ROLES.contains(claims.role());
     }
 
