@@ -74,7 +74,7 @@ Você pode testar a API com ferramentas como **Postman** ou **Insomnia**.
 ### Endpoint:
 
 ```
-POST http://13.222.59.208:8080/api/v1/jwt-validator
+POST http://13.222.59.208/api/v1/jwt-validator
 Content-Type: application/json
 
 {
