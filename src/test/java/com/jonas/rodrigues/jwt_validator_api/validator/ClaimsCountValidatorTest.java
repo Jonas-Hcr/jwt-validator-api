@@ -18,7 +18,7 @@ class ClaimsCountValidatorTest {
             "Seed", "7"
         );
 
-        JwtClaims claims = new JwtClaims("João", "Admin", "7");
+        JwtClaims claims = new JwtClaims("Admin", "7", "João");
         ClaimsCountValidator validator = new ClaimsCountValidator(claimsMap);
 
         assertTrue(validator.isValid(claims));
@@ -33,7 +33,7 @@ class ClaimsCountValidatorTest {
             "Extra", "X"
         );
 
-        JwtClaims claims = new JwtClaims("João", "Admin", "7");
+        JwtClaims claims = new JwtClaims("Admin", "7", "João");
         ClaimsCountValidator validator = new ClaimsCountValidator(claimsMap);
 
         assertFalse(validator.isValid(claims));
@@ -46,7 +46,7 @@ class ClaimsCountValidatorTest {
             "Role", "Admin"
         );
 
-        JwtClaims claims = new JwtClaims("João", "Admin", "7");
+        JwtClaims claims = new JwtClaims("Admin", "7", "João");
         ClaimsCountValidator validator = new ClaimsCountValidator(claimsMap);
 
         assertFalse(validator.isValid(claims));
