@@ -31,3 +31,10 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Infra ###
+*.pem
+.terraform/
+*.tfstate
+*.tfstate.backup
+out/
